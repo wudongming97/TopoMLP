@@ -27,7 +27,7 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 
 ## News
 
-[//]: # (- [2023.10.11] Our paper is released at [arXiv]&#40;https://arxiv.org/abs/2309.04379&#41;.)
+- [2023.10.10] Our paper is released at [arXiv](https://arxiv.org/abs/2309.04379).
 
 
 ## Setup
@@ -35,6 +35,24 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 For dataset preparation and environment requirements, please refer to [OpenLane-V2](https://github.com/OpenDriveLab/OpenLane-V2/blob/master/docs/getting_started.md#download-data).
 
 ## Training and Evaluation
+
+### Training
+If you want to train the model, please run the following command:
+```shell
+./tools/dist_train.sh ${CONFIG_FILE} ${GPU_NUM} [optional arguments]
+```
+For example, if you want to train TopoMLP on OpenLane-V2 subset-A train set, please run the following command:
+```shell
+./tools/dist_train.sh projects/configs/topomlp/topomlp_setA_r50_wo_yolov8.py 8
+```
+The training on 8 Nvidia A100 GPUs takes about 15 hours.
+
+### Evaluation
+
+If you want to evaluate the model, please run the following command:
+```shell
+./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} --eval=bbox
+```
 
 
 

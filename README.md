@@ -12,7 +12,7 @@ TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 > Dongming Wu, Jiahao Chang, Fan Jia, Yingfei Liu, Tiancai Wang, Jianbing Shen
 
 ## TL;DR
-TopoMLP is the 1st solution for 1st OpenLane Topology in Autonomous Driving Challenge.
+TopoMLP is **the 1st solution for 1st OpenLane Topology** in Autonomous Driving Challenge.
 It suggests a “first-detect-then-reason” philosophy for
 better topology prediction. 
 It includes two well-designed high-performance detectors and two elegant MLP networks with position
@@ -86,7 +86,12 @@ The results on **[Openlane-V2](https://github.com/OpenDriveLab/OpenLane-V2) subs
 If you find our work useful in your research, please consider citing it.
 
 ```
-
+@article{wu2023topomlp,
+  title={TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning},
+  author={Wu, Dongming and Chang, Jiahao and Jia, Fan and Liu, Yingfei and Wang, Tiancai and Shen, Jianbing},
+  journal={arXiv preprint},
+  year={2023}
+}
 ```
 
 

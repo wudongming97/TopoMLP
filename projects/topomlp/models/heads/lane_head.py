@@ -1,4 +1,10 @@
-# Copyright (c) OpenMMLab. All rights reserved.
+# ------------------------------------------------------------------------
+# Modified from PETRv2 (https://github.com/megvii-research/PETR)
+# Copyright (c) 2022 megvii-model. All Rights Reserved.
+# ------------------------------------------------------------------------
+# Modified from OpenLane-V2 (https://github.com/OpenDriveLab/OpenLane-V2)
+# Copyright (c) The OpenLane-V2 Dataset Authors. All rights reserved.
+# ------------------------------------------------------------------------
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

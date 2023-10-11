@@ -1,5 +1,5 @@
 # ==============================================================================
-# Modified from OpenLane-v2 Dataset
+# Modified from OpenLane-V2 (https://github.com/OpenDriveLab/OpenLane-V2)
 # ==============================================================================
 
 import copy

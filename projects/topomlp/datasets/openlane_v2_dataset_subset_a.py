@@ -184,38 +184,6 @@ class OpenLaneV2SubsetADataset(Custom3DDataset):
             'gt_topology_lclc': gt_topology_lclc,
             'gt_topology_lcte': gt_topology_lcte,
         }
-
-    def get_ann_info_resample(self, index, data_infos):
-
-        split, segment_id, timestamp = data_infos[index]
-        frame = self.collection.get_frame_via_identifier((split, segment_id, timestamp))
-
-        gt_lc = np.array([lc['points'] for lc in frame.get_annotations_lane_centerlines()], dtype=np.float32)
-        gt_lc_labels = np.zeros((len(gt_lc), ), dtype=np.int64)
-
-        gt_te = np.array([element['points'].flatten() for element in frame.get_annotations_traffic_elements()], dtype=np.float32).reshape(-1, 4)
-        gt_te_labels = np.array([element['attribute']for element in frame.get_annotations_traffic_elements()], dtype=np.int64)
-
-        gt_topology_lclc = frame.get_annotations_topology_lclc()
-        gt_topology_lcte = frame.get_annotations_topology_lcte()
-
-        # if str(segment_id) == '10003':
-        #     print(split)
-        #     print(segment_id)
-        #     print(timestamp)
-        #     print(gt_topology_lcte)
-
-        assert gt_lc.shape[0] == gt_topology_lclc.shape[0] == gt_topology_lclc.shape[1] == gt_topology_lcte.shape[0]
-        assert gt_te.shape[0] == gt_topology_lcte.shape[1]
-
-        return {
-            'gt_lc': gt_lc,
-            'gt_lc_labels': gt_lc_labels,
-            'gt_te': gt_te,
-            'gt_te_labels': gt_te_labels,
-            'gt_topology_lclc': gt_topology_lclc,
-            'gt_topology_lcte': gt_topology_lcte,
-        }
     
     def pre_pipeline(self, results):
         pass

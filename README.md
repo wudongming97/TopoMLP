@@ -7,7 +7,7 @@ TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 
 <p align="center"><img src="./figs/method.jpg" width="800"/></p>
 
-> **[TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning](https://arxiv.org/abs/2309.04379)**
+> **[TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning](https://arxiv.org/abs/2310.06753)**
 >
 > Dongming Wu, Jiahao Chang, Fan Jia, Yingfei Liu, Tiancai Wang, Jianbing Shen
 
@@ -27,7 +27,7 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 
 ## News
 
-- [2023.10.10] Our paper is released at [arXiv](https://arxiv.org/abs/2309.04379).
+- [2023.10.11] Our paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
 
 
 ## Setup
@@ -43,7 +43,7 @@ If you want to train the model, please run the following command:
 ```
 For example, if you want to train TopoMLP on OpenLane-V2 subset-A train set, please run the following command:
 ```shell
-./tools/dist_train.sh projects/configs/topomlp/topomlp_setA_r50_wo_yolov8.py 8
+./tools/dist_train.sh projects/configs/topomlp/topomlp_setA_r50_wo_yolov8.py 8 --work-dir=./work_dirs/topomlp_setA_r50_wo_yolov8
 ```
 The training on 8 Nvidia A100 GPUs takes about 15 hours.
 
@@ -51,7 +51,7 @@ The training on 8 Nvidia A100 GPUs takes about 15 hours.
 
 If you want to evaluate the model, please run the following command:
 ```shell
-./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} --eval=bbox
+./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} ${GPU_NUM} --eval=bbox
 ```
 
 

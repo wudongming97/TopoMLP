@@ -29,7 +29,7 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 
 - [2023.10.11] Code is released. TopoMLP paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
 - [2023.06.16] Tech report is released at [arXiv](https://arxiv.org/pdf/2306.09590.pdf).
-- [2023.06.02] We achieve the 1st solution for 1st OpenLane Topology in Autonomous Driving Challenge.
+- [2023.06.02] We achieve the 1st for 1st OpenLane Topology in Autonomous Driving Challenge.
 
 ## Setup
 

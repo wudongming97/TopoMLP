@@ -13,7 +13,7 @@ TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 
 ## TL;DR
 TopoMLP is **the 1st solution for 1st OpenLane Topology** in Autonomous Driving Challenge.
-It suggests a “first-detect-then-reason” philosophy for
+It suggests a **first-detect-then-reason** philosophy for
 better topology prediction. 
 It includes two well-designed high-performance detectors and two elegant MLP networks with position
 embedding for topology reasoning.
@@ -27,8 +27,9 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 
 ## News
 
-- [2023.10.11] Our paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
-
+- [2023.10.11] Code is released. TopoMLP paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
+- [2023.06.16] Tech report is released at [arXiv](https://arxiv.org/pdf/2306.09590.pdf).
+- [2023.06.02] We achieve the 1st solution for 1st OpenLane Topology in Autonomous Driving Challenge.
 
 ## Setup
 

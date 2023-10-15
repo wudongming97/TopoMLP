@@ -59,29 +59,30 @@ If you want to evaluate the model, please run the following command:
 
 ## Main Results
 
-The results on **[Openlane-V2](https://github.com/OpenDriveLab/OpenLane-V2) subset-A val** set:
+OpenLane-V2 subset-A val set:
 
-|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  | Config/Weight/Log |
-|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:-----------------:|
-|     STSU     | ResNet-50 |  24   |      12.7       |       0.5        |      43.0       |       15.1       | 25.4 |         -         |
-| VectorMapNet | ResNet-50 |  24   |      11.1       |       0.4        |      41.7       |       6.2        | 20.8 |         -         |
-|    MapTR     | ResNet-50 |  24   |      17.7       |       1.1        |      43.5       |       10.4       | 26.0 |         -         |
-|   TopoNet    | ResNet-50 |  24   |      28.5       |       4.1        |      48.1       |       20.8       | 35.6 |         -         |
-|   TopoMLP    | ResNet-50 |  24   |      28.3       |       7.2        |      50.0       |       22.8       | 38.2 ||
+|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  |                                                                                                Weight/Log                                                                                                 |
+|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|     STSU     | ResNet-50 |  24   |      12.7       |       0.5        |      43.0       |       15.1       | 25.4 |                                                                                                     -                                                                                                     |
+| VectorMapNet | ResNet-50 |  24   |      11.1       |       0.4        |      41.7       |       6.2        | 20.8 |                                                                                                     -                                                                                                     |
+|    MapTR     | ResNet-50 |  24   |      17.7       |       1.1        |      43.5       |       10.4       | 26.0 |                                                                                                     -                                                                                                     |
+|   TopoNet    | ResNet-50 |  24   |      28.5       |       4.1        |      48.1       |       20.8       | 35.6 |                                                                                                     -                                                                                                     |
+|   TopoMLP    | ResNet-50 |  24   |      28.3       |       7.2        |      50.0       |       22.8       | 38.2 |  [weight](https://github.com/wudongming97/TopoMLP/releases/tag/v1.0/topomlp_setA_r50_wo_yolov8_e24.pth)/[log](https://github.com/wudongming97/TopoMLP/releases/tag/v1.0/topomlp_setA_r50_wo_yolov8.log)   |
 |   TopoMLP*   | ResNet-50 |  24   |      28.8       |       7.8        |      53.3       |       30.1       | 41.2 ||
+
 > $*$ means using YOLOv8 proposals.
-> 
-> 
 
-The results on **[Openlane-V2](https://github.com/OpenDriveLab/OpenLane-V2) subset-B val** set:
+OpenLane-V2 subset-B val set:
 
-|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  | Config/Weight/Log |
-|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:-----------------:|
-|     STSU     | ResNet-50 |  24   |       8.2       |       0.0        |      43.9       |       9.4        | 21.2 |         -         |
-| VectorMapNet | ResNet-50 |  24   |       3.5       |       0.0        |      49.1       |       1.4        | 16.3 |         -         |
-|    MapTR     | ResNet-50 |  24   |      15.2       |       0.5        |      54.0       |       6.1        | 25.2 |         -         |
-|   TopoNet    | ResNet-50 |  24   |      24.3       |       2.5        |      55.0       |       14.2       | 33.2 |         -         |
-|   TopoMLP    | ResNet-50 |  24   |      26.6       |       7.6        |      58.3       |       17.8       | 38.7 |                   |
+|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  |                                                                                               Weight/Log                                                                                               |
+|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|     STSU     | ResNet-50 |  24   |       8.2       |       0.0        |      43.9       |       9.4        | 21.2 |                                                                                                   -                                                                                                    |
+| VectorMapNet | ResNet-50 |  24   |       3.5       |       0.0        |      49.1       |       1.4        | 16.3 |                                                                                                   -                                                                                                    |
+|    MapTR     | ResNet-50 |  24   |      15.2       |       0.5        |      54.0       |       6.1        | 25.2 |                                                                                                   -                                                                                                    |
+|   TopoNet    | ResNet-50 |  24   |      24.3       |       2.5        |      55.0       |       14.2       | 33.2 |                                                                                                   -                                                                                                    |
+|   TopoMLP    | ResNet-50 |  24   |      26.6       |       7.6        |      58.3       |       17.8       | 38.7 | [weight](https://github.com/wudongming97/TopoMLP/releases/tag/v1.0/topomlp_setB_r50_wo_yolov8_e24.pth)/[log](https://github.com/wudongming97/TopoMLP/releases/tag/v1.0/topomlp_setB_r50_wo_yolov8.log) |
+
+
 
 ## Citation
 If you find our work useful in your research, please consider citing it.

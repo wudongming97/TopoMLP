@@ -1,13 +1,13 @@
 <div align="center">
 <h1>
 <b>
-TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning</b>
+TopoMLP: A Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 </h1>
 </div>
 
 <p align="center"><img src="./figs/method.jpg" width="800"/></p>
 
-> **[TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning](https://arxiv.org/abs/2310.06753)**
+> **[TopoMLP: A Simple yet Strong Pipeline for Driving Topology Reasoning](https://arxiv.org/abs/2310.06753)**
 >
 > Dongming Wu, Jiahao Chang, Fan Jia, Yingfei Liu, Tiancai Wang, Jianbing Shen
 

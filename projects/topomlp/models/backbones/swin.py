@@ -786,7 +786,7 @@ class SwinTransformer_BEVDet(BaseModule):
                  return_stereo_feat=False,
                  output_missing_index_as_none=False,
                  frozen_stages=-1):
-        super(SwinTransformer_, self).__init__()
+        super(SwinTransformer_BEVDet, self).__init__()
 
         if isinstance(pretrain_img_size, int):
             pretrain_img_size = to_2tuple(pretrain_img_size)
@@ -1005,5 +1005,5 @@ class SwinTransformer_BEVDet(BaseModule):
     def train(self, mode=True):
         """Convert the model into training mode while keep normalization layer
         freezed."""
-        super(SwinTransformer_, self).train(mode)
+        super(SwinTransformer_BEVDet, self).train(mode)
         self._freeze_stages()

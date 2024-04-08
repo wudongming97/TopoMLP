@@ -348,7 +348,7 @@ class LaneHead(AnchorFreeHead):
 
         # Names of some parameters in has been changed.
         version = local_metadata.get('version', None)
-        if (version is None or version < 2) and self.__class__ is PETRHeadlane_H:
+        if (version is None or version < 2) and self.__class__ is LaneHead:
             convert_dict = {
                 '.self_attn.': '.attentions.0.',
                 # '.ffn.': '.ffns.0.',
@@ -588,6 +588,7 @@ class LaneHead(AnchorFreeHead):
         loss_iou = None
 
         bbox_preds = self.control_points_to_lane_points(bbox_preds)
+        # bbox_targets = self.control_points_to_lane_points(bbox_targets)
         bbox_targets = self.control_points_to_lane_points(bbox_targets)
         bbox_weights = bbox_weights.mean(-1).unsqueeze(-1).repeat(1, bbox_preds.shape[-1])
         # regression L1 loss

@@ -26,73 +26,50 @@ detectors by elegantly incorporating an extra object detector YOLOv8.
 - For lane-lane and lane-traffic topology prediction, MLPs is enough for better performance.
 
 ## News
-
+- [2024.04.08] Other backbones are released for the incoming [Mapless Driving Challenge](https://opendrivelab.com/challenge2024/). Welcome star and cite!
 - [2024.01.16] TopoMLP is accepted by ICLR2024.
 - [2023.10.11] Code is released. TopoMLP paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
 - [2023.06.16] Tech report is released at [arXiv](https://arxiv.org/pdf/2306.09590.pdf).
 - [2023.06.02] We achieve the 1st for 1st OpenLane Topology in Autonomous Driving Challenge.
 
-## Setup
-
-For dataset preparation and environment requirements, please refer to [OpenLane-V2](https://github.com/OpenDriveLab/OpenLane-V2/blob/master/docs/getting_started.md#download-data).
-
-## Training and Evaluation
-
-### Training
-If you want to train the model, please run the following command:
-```shell
-./tools/dist_train.sh ${CONFIG_FILE} ${GPU_NUM} [optional arguments]
-```
-For example, if you want to train TopoMLP on OpenLane-V2 subset-A train set, please run the following command:
-```shell
-./tools/dist_train.sh projects/configs/topomlp/topomlp_setA_r50_wo_yolov8.py 8 --work-dir=./work_dirs/topomlp_setA_r50_wo_yolov8
-```
-The training on 8 Nvidia A100 GPUs takes about 15 hours.
-
-### Evaluation
-
-If you want to evaluate the model, please run the following command:
-```shell
-./tools/dist_test.sh ${CONFIG_FILE} ${CHECKPOINT_FILE} ${GPU_NUM} --eval=bbox
-```
-
+## Getting Started
+- [**Environment and Dataset Setup**](./docs/setup.md)
+- [**Training and Evaluation**](./docs/training_inference.md)
 
 
 ## Main Results
 
 OpenLane-V2 subset-A val set:
 
-|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  |                                                                                                    Weight/Log                                                                                                    |
-|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|     STSU     | ResNet-50 |  24   |      12.7       |       0.5        |      43.0       |       15.1       | 25.4 |                                                                                                        -                                                                                                         |
-| VectorMapNet | ResNet-50 |  24   |      11.1       |       0.4        |      41.7       |       6.2        | 20.8 |                                                                                                        -                                                                                                         |
-|    MapTR     | ResNet-50 |  24   |      17.7       |       1.1        |      43.5       |       10.4       | 26.0 |                                                                      -                                                                                                                                           |
-|   TopoNet    | ResNet-50 |  24   |      28.5       |       4.1        |      48.1       |       20.8       | 35.6 |                                                                                                        -                                                                                                         |
-|   TopoMLP    | ResNet-50 |  24   |      28.3       |       7.2        |      50.0       |       22.8       | 38.2 | [weight](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_r50_wo_yolov8_e24.pth)/[log](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_r50_wo_yolov8.log) |
-|   TopoMLP*   | ResNet-50 |  24   |      28.8       |       7.8        |      53.3       |       30.1       | 41.2 ||
+|    Method    | Backbone  |                                                  Pretrain                                                  | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  |                                                                                                                                     Config                                                                                                                                     |                                                                                                    Weight/Log                                                                                                    |
+|:------------:|:---------:|:----------------------------------------------------------------------------------------------------------:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   TopoMLP    | ResNet-50 |                                                     -                                                      |      28.5       |       7.1        |      49.5       |       23.4       | 38.3 |                                                                                                           [config](./projects/configs/topomlp_setA_r50_wo_yolov8.py)                                                                                                           | [weight](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_r50_wo_yolov8_e24.pth)/[log](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_r50_wo_yolov8.log) |
+|   TopoMLP    |    VOV    | [FCOS3D](https://github.com/exiawsh/storage/releases/download/v1.0/fcos3d_vovnet_imgbackbone-remapped.pth) |      31.6       |       9.4        |      51.1       |       26.6       | 41.2 |                                                                                                           [config](./projects/configs/topomlp_setA_vov_wo_yolov8.py)                                                                                                           |                                                       [log](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_vov_wo_yolov8.log)                                                       |
+|   TopoMLP    |  Swin-B   |                                                     -                                                      |      31.6       |       9.2        |      54.2       |       28.6       | 42.4 |                                                       [config](./projects/configs/topomlp_setA_swinb_wo_yolov8.py)|                                                      [log](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setA_swinb_wo_yolov8.log)                                                      |
 
-> $*$ means using YOLOv8 proposals.
-
-OpenLane-V2 subset-B val set:
-
-|    Method    |  Backbone | Epoch | DET<sub>l</sub> | TOP<sub>ll</sub> | DET<sub>t</sub> | TOP<sub>lt</sub> | OLS  |                                                                                                    Weight/Log                                                                                                    |
-|:------------:|:---------:|:-----:|:---------------:|:----------------:|:---------------:|:----------------:|:----:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|     STSU     | ResNet-50 |  24   |       8.2       |       0.0        |      43.9       |       9.4        | 21.2 |                                                                                                        -                                                                                                         |
-| VectorMapNet | ResNet-50 |  24   |       3.5       |       0.0        |      49.1       |       1.4        | 16.3 |                                                                                                        -                                                                                                         |
-|    MapTR     | ResNet-50 |  24   |      15.2       |       0.5        |      54.0       |       6.1        | 25.2 |                                                                   -                                                                                                                                              |
-|   TopoNet    | ResNet-50 |  24   |      24.3       |       2.5        |      55.0       |       14.2       | 33.2 |                                                                                                        -                                                                                                         |
-|   TopoMLP    | ResNet-50 |  24   |      26.6       |       7.6        |      58.3       |       17.8       | 38.7 | [weight](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setB_r50_wo_yolov8_e24.pth)/[log](https://github.com/wudongming97/TopoMLP/releases/download/v1.0/topomlp_setB_r50_wo_yolov8.log) |
+**Notes**: 
+- Our code supports flash attention, which is not used in the above results. You can replace the `PETRMultiheadAttention` in the config file to `PETRMultiheadFlashAttention` to use it.
+- ViT-Large can refer to [StreamPETR](https://github.com/exiawsh/StreamPETR/blob/main/docs/ViT_Large.md). From our practice, it is not as good as Swin-B in this overall task, but it can perform well in sub-task centerline detection as reported in our technical report.
 
 
 
 ## Citation
-If you find our work useful in your research, please consider citing it.
+If you find TopoMLP is useful in your research or applications, please consider giving us a star 🌟 and citing it by the following BibTeX entry.
+
 
 ```
 @article{wu2023topomlp,
   title={TopoMLP: An Simple yet Strong Pipeline for Driving Topology Reasoning},
   author={Wu, Dongming and Chang, Jiahao and Jia, Fan and Liu, Yingfei and Wang, Tiancai and Shen, Jianbing},
-  journal={arXiv preprint},
+  journal={ICLR},
+  year={2024}
+}
+```
+```
+@article{wu20231st,
+  title={The 1st-place solution for cvpr 2023 openlane topology in autonomous driving challenge},
+  author={Wu, Dongming and Jia, Fan and Chang, Jiahao and Li, Zhuoling and Sun, Jianjian and Han, Chunrui and Li, Shuailin and Liu, Yingfei and Ge, Zheng and Wang, Tiancai},
+  journal={arXiv preprint arXiv:2306.09590},
   year={2023}
 }
 ```

@@ -5,6 +5,11 @@ TopoMLP: A Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 </h1>
 </div>
 
+<p>
+  <b>🏆 1<sup>st</sup> Place</b> &nbsp;·&nbsp; <b>1<sup>st</sup> OpenLane Topology</b><br/>
+  <em>Autonomous Driving Challenge</em>
+</p>
+
 <p align="center"><img src="./figs/method.jpg" width="800"/></p>
 
 > **[TopoMLP: A Simple yet Strong Pipeline for Driving Topology Reasoning](https://arxiv.org/abs/2310.06753)**
@@ -25,12 +30,6 @@ Bezier curve.
 detectors by elegantly incorporating an extra object detector YOLOv8.
 - For lane-lane and lane-traffic topology prediction, MLPs is enough for better performance.
 
-## News
-- [2024.04.08] Other backbones are released for the incoming [Mapless Driving Challenge](https://opendrivelab.com/challenge2024/). Welcome star and cite!
-- [2024.01.16] TopoMLP is accepted by ICLR2024.
-- [2023.10.11] Code is released. TopoMLP paper is released at [arXiv](https://arxiv.org/abs/2310.06753).
-- [2023.06.16] Tech report is released at [arXiv](https://arxiv.org/pdf/2306.09590.pdf).
-- [2023.06.02] We achieve the 1st for 1st OpenLane Topology in Autonomous Driving Challenge.
 
 ## Getting Started
 - [**Environment and Dataset Setup**](./docs/setup.md)

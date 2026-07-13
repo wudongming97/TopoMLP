@@ -5,9 +5,9 @@ TopoMLP: A Simple yet Strong Pipeline for Driving Topology Reasoning</b>
 </h1>
 </div>
 
-<p align="center">
-  🏆 <b>1<sup>st</sup> Place in the 1<sup>st</sup> OpenLane Topology Challenge in Autonomous Driving Challenge</b> 
-</p>
+<h4 align="center">
+  🏆 1<sup>st</sup> Place in the 1<sup>st</sup> OpenLane Topology Challenge in Autonomous Driving Challenge
+</h4>
 
 <p align="center"><img src="./figs/method.jpg" width="800"/></p>
 
